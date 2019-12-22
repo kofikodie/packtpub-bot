@@ -11,10 +11,11 @@ commander
     let todaysOfferResponse = packtPubClient.fetchTodayOffer();
     todaysOfferResponse
       .then(function(result) {
-        console.log(result); // "Some User token"
+        console.log(result);
       })
       .catch(function(error) {
         console.log(error);
       });
   });
+
 commander.parse(process.argv);

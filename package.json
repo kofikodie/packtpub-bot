@@ -4,7 +4,7 @@
   "description": "A chat bot for sending daily Packt Publishing Free eBooks to your Slack channel (inspired by alsoknownasdrew)",
   "main": "console.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "tsc",
     "start": "node dist/console.js",
     "ts-node": "ts-node console.ts"
@@ -33,6 +33,10 @@
     "typescript": "^3.7.4"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21"
+    "@types/jest": "^24.0.24",
+    "@types/node": "^12.12.21",
+    "ajv": "^6.10.2",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0"
   }
 }
