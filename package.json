@@ -1,0 +1,38 @@
+{
+  "name": "packtpub-bot",
+  "version": "1.0.0",
+  "description": "A chat bot for sending daily Packt Publishing Free eBooks to your Slack channel (inspired by alsoknownasdrew)",
+  "main": "console.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/console.js",
+    "ts-node": "ts-node console.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kofikodie/packtpub-bot.git"
+  },
+  "keywords": [
+    "slack",
+    "typescript",
+    "bot"
+  ],
+  "author": "kodie @k.kodieaddo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kofikodie/packtpub-bot/issues"
+  },
+  "homepage": "https://github.com/kofikodie/packtpub-bot#readme",
+  "dependencies": {
+    "@types/commander": "^2.12.2",
+    "axios": "^0.19.0",
+    "commander": "^4.0.1",
+    "moment": "^2.24.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21"
+  }
+}
