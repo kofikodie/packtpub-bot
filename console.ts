@@ -13,10 +13,10 @@ commander
     .action(() => {
         let bookApifetcher = new BookAPIFetcher(new PacktPubClient, new BookBuilder).fetch();
         bookApifetcher
-            .then(function (result: Book) {
-                console.log(result.toString());
+            .then((result: Book) => {
+                console.log(result.publicationDate);
             })
-            .catch(function (error: Book) {
+            .catch((error: Book) => {
                 console.log(error);
             });
     });

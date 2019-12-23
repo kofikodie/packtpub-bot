@@ -25,7 +25,7 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
             .description(bookData.oneLiner)
             .arthor([new Arthor(3223, 'Test'), new Arthor(344, 'Testiamo')])
             .coverURL(coverURL)
-            .publicationDate(moment(new Date()).format("YYYY-MM-DD"))
+            .publicationDate(bookData.publicationDate)
             .build();
     }
 }

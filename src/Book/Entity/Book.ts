@@ -3,7 +3,7 @@ import {Arthor} from "./Arthor";
 export class Book {
     private _id: number;
     private _title: string;
-    private _authors: Arthor[];
+    private _author: Arthor[];
     private _publicationDate: string;
     private _description: string;
     private _coverURL: string;
@@ -11,7 +11,7 @@ export class Book {
     constructor(id: number, title: string, authors: Arthor[], publicationDate: string, description: string, coverURL: string) {
         this._id = id;
         this._title = title;
-        this._authors = authors;
+        this._author = authors;
         this._publicationDate = publicationDate;
         this._description = description;
         this._coverURL = coverURL;
@@ -25,8 +25,8 @@ export class Book {
         return this._title;
     }
 
-    get authors(): Arthor[] {
-        return this._authors;
+    get author(): Arthor[] {
+        return this._author;
     }
 
     get publicationDate(): string {
