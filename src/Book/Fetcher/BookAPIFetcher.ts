@@ -16,11 +16,11 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
 
     async fetch(): Promise<Book> {
         let todaysOfferData = await this._packtPubClient.fetchTodayOffer();
-        let bookData = await this._packtPubClient.fetchBookById(todaysOfferData);
-        let coverURL = await this._packtPubClient.fetchCoverURLByBookId(todaysOfferData);
+        let bookData = await this._packtPubClient.fetchBookById(todaysOfferData.data[0].productId);
+        let coverURL = await this._packtPubClient.fetchCoverURLByBookId(todaysOfferData.data[0].productId);
 
         return this._bookBuilder
-            .id(todaysOfferData.productId)
+            .id(todaysOfferData.data[0].productId)
             .title(bookData.title)
             .description(bookData.oneLiner)
             .arthor([new Arthor(3223, 'Test'), new Arthor(344, 'Testiamo')])
