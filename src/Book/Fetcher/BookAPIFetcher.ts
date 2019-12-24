@@ -3,7 +3,6 @@ import {BookBuilder} from "../Builder/BookBuilder";
 import {PacktPubInterface} from "../../Service/PacktPub/PacktPubInterface";
 import {Book} from "../Entity/Book"
 import {Arthor} from "../Entity/Arthor";
-import moment from "moment";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
     private _packtPubClient: PacktPubInterface;
