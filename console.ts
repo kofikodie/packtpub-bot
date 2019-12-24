@@ -4,7 +4,7 @@ import {Book} from "./src/Book/Entity/Book";
 import {BookBuilder} from "./src/Book/Builder/BookBuilder";
 import {PacktPubClient} from "./src/Service/PacktPub/PacktPubClient";
 
-commander.version("1.0.0").description("Bot retrieve free books");
+commander.version("1.0.0").description("Send free packtpub book to slack");
 
 commander
     .command("send")
