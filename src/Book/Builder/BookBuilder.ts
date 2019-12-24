@@ -20,7 +20,7 @@ export class BookBuilder implements BookBuilderInterface {
         return this;
     }
 
-    arthor(arthors: Arthor[]): BookBuilder {
+    author(arthors: Arthor[]): BookBuilder {
         this._arthors = arthors;
         return this;
     }
