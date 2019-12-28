@@ -3,10 +3,10 @@ import moment from "moment";
 import {PacktPubInterface} from "./PacktPubInterface";
 
 export class PacktPubClient implements PacktPubInterface {
-    readonly OFFER_URL: string =
+    private readonly OFFER_URL: string =
         "https://services.packtpub.com/free-learning-v1/offers";
-    readonly BOOK_URL: string = "https://static.packt-cdn.com/products";
-    readonly AUTHOR_URL: string = "https://static.packt-cdn.com/authors";
+    private readonly BOOK_URL: string = "https://static.packt-cdn.com/products";
+    private readonly AUTHOR_URL: string = "https://static.packt-cdn.com/authors";
 
     async fetchCoverURLByBookId(id: string): Promise<any> {
         return "https://static.packt-cdn.com/products/" + id + "/cover/smaller";
