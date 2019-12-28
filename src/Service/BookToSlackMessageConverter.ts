@@ -39,7 +39,7 @@ export class BookToSlackMessageConverter {
                             "type": "button",
                             "text": {
                                 "type": "plain_text",
-                                "text": "Button",
+                                "text": "Claim now",
                                 "emoji": true
                             },
                             "style": "primary",
