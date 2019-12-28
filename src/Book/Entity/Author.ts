@@ -1,4 +1,4 @@
-export class Arthor {
+export class Author {
     private _id: number;
     private _name: string;
 
