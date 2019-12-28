@@ -1,0 +1,12 @@
+node_modules
+.idea
+.git
+.vscode
+Dockerfile
+.DS_Store
+.gitignore
+README.md
+env.*
+/devops/*
+*.csv
+/tmp/*
