@@ -14,7 +14,7 @@ commander.version("1.0.0").description("Send free packtpub book to slack");
 commander
     .command("send")
     .alias("s")
-    .description("greet in console")
+    .description("send message to slack channel")
     .action(() => {
         let bookApifetcher = new BookAPIFetcher(new PacktPubClient, new BookBuilder).fetch();
         bookApifetcher
