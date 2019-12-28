@@ -1,12 +1,12 @@
 import {Author} from "./Author";
 
 export class Book {
-    private _id: number;
-    private _title: string;
-    private _author: Author[];
-    private _publicationDate: string;
-    private _description: string;
-    private _coverURL: string;
+    private readonly _id: number;
+    private readonly _title: string;
+    private readonly _author: Author[];
+    private readonly _publicationDate: string;
+    private readonly _description: string;
+    private readonly _coverURL: string;
 
     constructor(id: number, title: string, authors: Author[], publicationDate: string, description: string, coverURL: string) {
         this._id = id;
