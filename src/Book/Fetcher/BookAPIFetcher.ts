@@ -2,7 +2,7 @@ import {BookAPIFetcherInterface} from "./BookAPIFetcherInterface";
 import {BookBuilder} from "../Builder/BookBuilder";
 import {PacktPubInterface} from "../../Service/PacktPub/PacktPubInterface";
 import {Book} from "../Entity/Book"
-import {Arthor} from "../Entity/Arthor";
+import {Author} from "../Entity/Author";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
     private _packtPubClient: PacktPubInterface;
@@ -22,7 +22,7 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
         });
         let authorCollectionsData = await Promise.all(authorsCollectionsPromise);
         let authors = authorCollectionsData.map((authorData: any) => {
-            return new Arthor(authorData.id, authorData.author);
+            return new Author(authorData.id, authorData.author);
         });
 
         return this._bookBuilder
