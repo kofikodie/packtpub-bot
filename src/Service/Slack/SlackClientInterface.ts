@@ -1,3 +1,3 @@
-interface SlackClientInterface {
-    send(message: string): void;
+export interface SlackClientInterface {
+    send(message: JSON): void;
 }

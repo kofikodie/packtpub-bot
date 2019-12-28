@@ -1,22 +1,24 @@
-///<reference path="SlackClientInterface.ts"/>
 import axios from "axios";
+import {SlackClientInterface} from "./SlackClientInterface";
 
-class SlackClient implements SlackClientInterface {
-    private _client: SlackClientInterface;
-    private _webHook: string;
+export class SlackClient implements SlackClientInterface {
+    private readonly _webHook: string;
 
-    constructor(client: SlackClientInterface, webHook: string) {
-        this._client = client;
+    constructor(webHook: string) {
         this._webHook = webHook;
     }
 
-    async send(message: string): Promise<void> {
-        await axios.post(this._webHook, message,
-            {
-                headers:
-                    {'Content-Type': 'application/json'}
-            }
-        )
+    async send(message: JSON): Promise<void> {
+        try {
+            await axios.post(this._webHook, message,
+                {
+                    headers:
+                        {'Content-Type': 'application/json'}
+                }
+            )
+        }catch (error) {
+            console.error(error);
+        }
     }
 
 }
