@@ -1,11 +1,11 @@
 import {Book} from "../Entity/Book";
 import {BookBuilderInterface} from "./BookBuilderInterface";
-import {Arthor} from "../Entity/Arthor";
+import {Author} from "../Entity/Author";
 
 export class BookBuilder implements BookBuilderInterface {
     private _id: number;
     private _title: string;
-    private _arthors: Arthor[];
+    private _arthors: Author[];
     private _publicationDate: string;
     private _description: string;
     private _coverURL: string;
@@ -20,7 +20,7 @@ export class BookBuilder implements BookBuilderInterface {
         return this;
     }
 
-    author(arthors: Arthor[]): BookBuilder {
+    author(arthors: Author[]): BookBuilder {
         this._arthors = arthors;
         return this;
     }
