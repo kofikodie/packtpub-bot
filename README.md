@@ -4,16 +4,16 @@
 
 To get up and running with docker you will need to:
 
-1. create an .env file and set environment variables:
+1. Create an .env file and set environment variable:
     ```bash
     SLACK_WEBHOOKS="your-slack-channel-webhook"
     ```
-2. Build your image run
+2. Build your image
     ```bash
      docker build -t nameOfYourImage:version .
     ```
 
-3. Run your image with the following command:
+3. Run your image
     ```bash
      docker run --rm nameOfYourImage:version node dist/console.js send
     ```
