@@ -14,19 +14,19 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
     }
 
     async fetch(): Promise<Book> {
-        let todaysOfferData = await this._packtPubClient.fetchTodayOffer();
-        let bookData = await this._packtPubClient.fetchBookById(todaysOfferData.data[0].productId);
-        let coverURL = await this._packtPubClient.fetchCoverURLByBookId(todaysOfferData.data[0].productId);
-        let authorsCollectionsPromise = bookData.authors.map((author: string) => {
-            return this._packtPubClient.fetchAuthorById(author);
-        });
+        const todaysOfferData = await this._packtPubClient.fetchTodayOffer();
+        const [data] = todaysOfferData;
+        const { productId } = data;
+        let bookData = await this._packtPubClient.fetchBookById(productId);
+        let coverURL = await this._packtPubClient.fetchCoverURLByBookId(productId);
+        let authorsCollectionsPromise: Promise<any>[] = bookData.authors.map((author: string) => this._packtPubClient.fetchAuthorById(author));
         let authorCollectionsData = await Promise.all(authorsCollectionsPromise);
         let authors = authorCollectionsData.map((authorData: any) => {
             return new Author(authorData.id, authorData.author);
         });
 
         return this._bookBuilder
-            .id(todaysOfferData.data[0].productId)
+            .id(productId)
             .title(bookData.title)
             .description(bookData.oneLiner)
             .author(authors)
