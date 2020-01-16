@@ -23,9 +23,9 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
         let authorsCollectionsPromise: Promise<IFetchAuthor>[] = bookData.authors.map((author: string) => {
             return this._packtPubClient.fetchAuthorById(author);
         });
-        let authorCollectionsData = await Promise.all(authorsCollectionsPromise);
-        let authors = authorCollectionsData.map((authorData: any) => {
-            return new Author(authorData.id, authorData.author);
+        let authorCollectionsData: Array<IFetchAuthor> = await Promise.all(authorsCollectionsPromise);
+        let authors: Array<Author> = authorCollectionsData.map((authorData: IFetchAuthor) => {
+            return new Author(Number(authorData.id), authorData.author);
         });
 
         return this._bookBuilder
