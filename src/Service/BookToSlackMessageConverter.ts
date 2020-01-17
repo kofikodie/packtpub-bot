@@ -7,43 +7,43 @@ export class BookToSlackMessageConverter {
         book.author.forEach((author: Author) => {
             bookInfo += `_${author.name}_\n`;
         });
-        bookInfo += '\n';
+        bookInfo += "\n";
         bookInfo += `${book.publicationDate}\n`;
         bookInfo += `${book.description}\n`;
 
-        let messageData = {
-            "blocks": [
+        const messageData = {
+            blocks: [
                 {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": "Today's Free eBook:"
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: "Today's Free eBook:"
                     }
                 },
                 {
-                    "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": `${bookInfo}`
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: `${bookInfo}`
                     },
-                    "accessory": {
-                        "type": "image",
-                        "image_url": `${book.coverURL}`,
-                        "alt_text": `${book.title}`
+                    accessory: {
+                        type: "image",
+                        image_url: `${book.coverURL}`,
+                        alt_text: `${book.title}`
                     }
                 },
                 {
-                    "type": "actions",
-                    "elements": [
+                    type: "actions",
+                    elements: [
                         {
-                            "type": "button",
-                            "text": {
-                                "type": "plain_text",
-                                "text": "Claim now",
-                                "emoji": true
+                            type: "button",
+                            text: {
+                                type: "plain_text",
+                                text: "Claim now",
+                                emoji: true
                             },
-                            "style": "primary",
-                            "url": "https://www.packtpub.com/free-learning"
+                            style: "primary",
+                            url: "https://www.packtpub.com/free-learning"
                         }
                     ]
                 }
