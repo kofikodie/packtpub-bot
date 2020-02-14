@@ -4,19 +4,19 @@ import { BookToSlackMessageConverter } from "../Service/BookToSlackMessageConver
 import { Book } from "../Book/Entity/Book";
 
 export class SlackBookSender implements SlackBookSenderInterface {
-  private slackClient: SlackClientInterface;
-  private bookToSlackMessageConverter: BookToSlackMessageConverter;
+   #slackClient: SlackClientInterface;
+   #bookToSlackMessageConverter: BookToSlackMessageConverter;
 
   constructor(
     slackClient: SlackClientInterface,
     bookToSlackMessageConverter: BookToSlackMessageConverter
   ) {
-    this.slackClient = slackClient;
-    this.bookToSlackMessageConverter = bookToSlackMessageConverter;
+    this.#slackClient = slackClient;
+    this.#bookToSlackMessageConverter = bookToSlackMessageConverter;
   }
 
   send(book: Book): void {
-    const message: JSON = this.bookToSlackMessageConverter.convert(book);
-    this.slackClient.send(message);
+    const message: JSON = this.#bookToSlackMessageConverter.convert(book);
+    this.#slackClient.send(message);
   }
 }

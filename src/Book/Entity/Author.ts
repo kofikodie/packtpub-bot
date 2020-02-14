@@ -1,25 +1,25 @@
 export class Author {
-  private _id: number;
-  private _name: string;
+   #id: number;
+   #name: string;
 
   constructor(id: number, name: string) {
-    this._id = id;
-    this._name = name;
+    this.#id = id;
+    this.#name = name;
   }
 
   get id(): number {
-    return this._id;
+    return this.#id;
   }
 
   set id(value: number) {
-    this._id = value;
+    this.#id = value;
   }
 
   get name(): string {
-    return this._name;
+    return this.#name;
   }
 
   set name(value: string) {
-    this._name = value;
+    this.#name = value;
   }
 }

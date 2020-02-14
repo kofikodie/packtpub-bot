@@ -8,26 +8,26 @@ import { IFetchTodayOffer } from "../../Service/PacktPub/ResponseTypes/IFetchTod
 import { IFetchAuthor } from "../../Service/PacktPub/ResponseTypes/IFetchAuthor";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
-  private _packtPubClient: PacktPubInterface;
-  private _bookBuilder: BookBuilder;
+  #packtPubClient: PacktPubInterface;
+  #bookBuilder: BookBuilder;
 
   constructor(packtPubClient: PacktPubInterface, bookBuilder: BookBuilder) {
-    this._packtPubClient = packtPubClient;
-    this._bookBuilder = bookBuilder;
+    this.#packtPubClient = packtPubClient;
+    this.#bookBuilder = bookBuilder;
   }
 
   async fetch(): Promise<Book> {
-    let todaysOfferData: IFetchTodayOffer = await this._packtPubClient.fetchTodayOffer();
-    let bookData: IFetchBook = await this._packtPubClient.fetchBookById(
+    let todaysOfferData: IFetchTodayOffer = await this.#packtPubClient.fetchTodayOffer();
+    let bookData: IFetchBook = await this.#packtPubClient.fetchBookById(
       todaysOfferData.data[0].productId
     );
-    let coverURL: string = await this._packtPubClient.fetchCoverURLByBookId(
+    let coverURL: string = await this.#packtPubClient.fetchCoverURLByBookId(
       todaysOfferData.data[0].productId
     );
     let authorsCollectionsPromise: Promise<
       IFetchAuthor
     >[] = bookData.authors.map((author: string) => {
-      return this._packtPubClient.fetchAuthorById(author);
+      return this.#packtPubClient.fetchAuthorById(author);
     });
     let authorCollectionsData: Array<IFetchAuthor> = await Promise.all(
       authorsCollectionsPromise
@@ -38,7 +38,7 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
       }
     );
 
-    return this._bookBuilder
+    return this.#bookBuilder
       .id(Number(todaysOfferData.data[0].productId))
       .title(bookData.title)
       .description(bookData.oneLiner)
