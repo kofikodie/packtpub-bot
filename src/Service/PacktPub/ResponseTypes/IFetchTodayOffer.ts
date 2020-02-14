@@ -1,6 +1,6 @@
-import {OfferType} from "./OfferType";
+import { OfferType } from "./OfferType";
 
 export interface IFetchTodayOffer {
-    data: Array<OfferType>,
-    count: number
+  data: Array<OfferType>;
+  count: number;
 }

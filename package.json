@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "pretty": " prettier --write \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "@types/node": "^12.12.21",
     "ajv": "^6.10.2",
     "jest": "^24.9.0",
+    "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
     "tslint": "^5.20.1"
   }

@@ -1,6 +1,6 @@
 export interface IFetchAuthor {
-    author: string;
-    id: string;
-    description: string;
-    products: Array<string>;
+  author: string;
+  id: string;
+  description: string;
+  products: Array<string>;
 }

@@ -1,13 +1,13 @@
-import {IFetchBook} from "./ResponseTypes/IFetchBook";
-import {IFetchAuthor} from "./ResponseTypes/IFetchAuthor";
-import {IFetchTodayOffer} from "./ResponseTypes/IFetchTodayOffer";
+import { IFetchBook } from "./ResponseTypes/IFetchBook";
+import { IFetchAuthor } from "./ResponseTypes/IFetchAuthor";
+import { IFetchTodayOffer } from "./ResponseTypes/IFetchTodayOffer";
 
 export interface PacktPubInterface {
-    fetchTodayOffer(): Promise<IFetchTodayOffer>;
+  fetchTodayOffer(): Promise<IFetchTodayOffer>;
 
-    fetchBookById(id: string): Promise<IFetchBook>;
+  fetchBookById(id: string): Promise<IFetchBook>;
 
-    fetchAuthorById(id: string): Promise<IFetchAuthor>;
+  fetchAuthorById(id: string): Promise<IFetchAuthor>;
 
-    fetchCoverURLByBookId(id: string): Promise<string | null>;
+  fetchCoverURLByBookId(id: string): Promise<string | null>;
 }
