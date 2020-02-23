@@ -1,9 +1,9 @@
 import axios from "axios";
 import moment from "moment";
 import { PacktPubInterface } from "./PacktPubInterface";
-import { IFetchBook } from "./ResponseTypes/IFetchBook";
-import { IFetchAuthor } from "./ResponseTypes/IFetchAuthor";
-import { IFetchTodayOffer } from "./ResponseTypes/IFetchTodayOffer";
+import { IFetchBook } from "./Interface/IFetchBook";
+import { IFetchAuthor } from "./Interface/IFetchAuthor";
+import { IFetchTodayOffer } from "./Interface/IFetchTodayOffer";
 
 export class PacktPubClient implements PacktPubInterface {
    readonly #OFFER_URL: string =
