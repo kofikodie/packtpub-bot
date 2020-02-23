@@ -1,6 +1,6 @@
-import { IFetchBook } from "./ResponseTypes/IFetchBook";
-import { IFetchAuthor } from "./ResponseTypes/IFetchAuthor";
-import { IFetchTodayOffer } from "./ResponseTypes/IFetchTodayOffer";
+import { IFetchBook } from "./Interface/IFetchBook";
+import { IFetchAuthor } from "./Interface/IFetchAuthor";
+import { IFetchTodayOffer } from "./Interface/IFetchTodayOffer";
 
 export interface PacktPubInterface {
   fetchTodayOffer(): Promise<IFetchTodayOffer>;

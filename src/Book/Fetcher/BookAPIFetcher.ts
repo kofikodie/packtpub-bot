@@ -3,9 +3,9 @@ import { BookBuilder } from "../Builder/BookBuilder";
 import { PacktPubInterface } from "../../Service/PacktPub/PacktPubInterface";
 import { Book } from "../Entity/Book";
 import { Author } from "../Entity/Author";
-import { IFetchBook } from "../../Service/PacktPub/ResponseTypes/IFetchBook";
-import { IFetchTodayOffer } from "../../Service/PacktPub/ResponseTypes/IFetchTodayOffer";
-import { IFetchAuthor } from "../../Service/PacktPub/ResponseTypes/IFetchAuthor";
+import { IFetchBook } from "../../Service/PacktPub/Interface/IFetchBook";
+import { IFetchTodayOffer } from "../../Service/PacktPub/Interface/IFetchTodayOffer";
+import { IFetchAuthor } from "../../Service/PacktPub/Interface/IFetchAuthor";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
   #packtPubClient: PacktPubInterface;
