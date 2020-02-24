@@ -8,7 +8,7 @@
     "build": "tsc",
     "lint": "tslint src/**/*.ts",
     "pretty": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node console.ts"
+    "start": "ts-node console.ts send"
   },
   "repository": {
     "type": "git",
