@@ -6,10 +6,10 @@ import { IFetchAuthor } from "./Interface/IFetchAuthor";
 import { IFetchTodayOffer } from "./Interface/IFetchTodayOffer";
 
 export class PacktPubClient implements PacktPubInterface {
-   readonly #OFFER_URL: string =
+    #OFFER_URL: string =
     "https://services.packtpub.com/free-learning-v1/offers";
-   readonly #BOOK_URL: string = "https://static.packt-cdn.com/products";
-   readonly #AUTHOR_URL: string = "https://static.packt-cdn.com/authors";
+    #BOOK_URL: string = "https://static.packt-cdn.com/products";
+    #AUTHOR_URL: string = "https://static.packt-cdn.com/authors";
 
   async fetchCoverURLByBookId(id: string): Promise<string> {
     return `https://static.packt-cdn.com/products/${id}/cover/smaller`;
