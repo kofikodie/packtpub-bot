@@ -3,9 +3,7 @@ import { BookBuilder } from "../Builder/BookBuilder";
 import { PacktPubInterface } from "../../Service/PacktPub/PacktPubInterface";
 import { Book } from "../Entity/Book";
 import { Author } from "../Entity/Author";
-import { IFetchBook } from "../../Service/PacktPub/Interface/IFetchBook";
-import { IFetchTodayOffer } from "../../Service/PacktPub/Interface/IFetchTodayOffer";
-import { IFetchAuthor } from "../../Service/PacktPub/Interface/IFetchAuthor";
+import { IAuthor } from "../../Service/PacktPub/Interface/IAuthor";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
   #packtPubClient: PacktPubInterface;
@@ -17,29 +15,21 @@ export class BookAPIFetcher implements BookAPIFetcherInterface {
   }
 
   async fetch(): Promise<Book> {
-    let todaysOfferData: IFetchTodayOffer = await this.#packtPubClient.fetchTodayOffer();
-    let bookData: IFetchBook = await this.#packtPubClient.fetchBookById(
-      todaysOfferData.data[0].productId
-    );
-    let coverURL: string = await this.#packtPubClient.fetchCoverURLByBookId(
-      todaysOfferData.data[0].productId
-    );
+    let bookId = await this.#packtPubClient.fetchTodayOffer();
+    let bookData = await this.#packtPubClient.fetchBookById(bookId);
+    let coverURL = await this.#packtPubClient.fetchCoverURLByBookId(bookId);
     let authorsCollectionsPromise: Promise<
-      IFetchAuthor
-    >[] = bookData.authors.map((author: string) => {
-      return this.#packtPubClient.fetchAuthorById(author);
-    });
-    let authorCollectionsData: Array<IFetchAuthor> = await Promise.all(
+      IAuthor
+    >[] = bookData.authors.map((author: string) => this.#packtPubClient.fetchAuthorById(author));
+    let authorCollectionsData = await Promise.all(
       authorsCollectionsPromise
     );
-    let authors: Array<Author> = authorCollectionsData.map(
-      (authorData: IFetchAuthor) => {
-        return new Author(Number(authorData.id), authorData.author);
-      }
+    let authors = authorCollectionsData.map(
+      (authorData: IAuthor) => new Author(Number(authorData.id), authorData.author)
     );
 
     return this.#bookBuilder
-      .id(Number(todaysOfferData.data[0].productId))
+      .id(Number(bookId))
       .title(bookData.title)
       .description(bookData.oneLiner)
       .author(authors)
