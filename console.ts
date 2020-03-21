@@ -1,6 +1,5 @@
 import commander from "commander";
 import { BookAPIFetcher } from "./src/Book/Fetcher/BookAPIFetcher";
-import { Book } from "./src/Book/Entity/Book";
 import { BookBuilder } from "./src/Book/Builder/BookBuilder";
 import { PacktPubClient } from "./src/Service/PacktPub/PacktPubClient";
 import { SlackBookSender } from "./src/Sender/SlackBookSender";
@@ -15,21 +14,18 @@ commander
   .command("send")
   .alias("s")
   .description("send message to slack channel")
-  .action(() => {
-    let bookApifetcher = new BookAPIFetcher(
-      new PacktPubClient(),
-      new BookBuilder()
-    ).fetch();
-    bookApifetcher
-      .then((book: Book) => {
-        let slackBookSender = new SlackBookSender(
-          new SlackClient(process.env.SLACK_WEBHOOKS),
-          new BookToSlackMessageConverter()
-        );
-        slackBookSender.send(book);
-      })
-      .catch((error: Book) => {
-        console.log(error);
-      });
+  .action(async () => {
+    try {
+      const bookApifetcher = await new BookAPIFetcher(
+        new PacktPubClient(),
+        new BookBuilder()
+      ).fetch();
+      new SlackBookSender(
+        new SlackClient(process.env.SLACK_WEBHOOKS),
+        new BookToSlackMessageConverter()
+      ).send(bookApifetcher);
+    } catch (error) {
+      console.log(`${error.message}`);
+    }
   });
 commander.parse(process.argv);
