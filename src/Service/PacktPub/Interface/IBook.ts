@@ -1,4 +1,4 @@
-export interface IFetchBook {
+export interface IBook {
   title: string;
   type: string;
   coverImage: string;

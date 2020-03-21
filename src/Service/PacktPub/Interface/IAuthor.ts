@@ -1,4 +1,4 @@
-export interface IFetchAuthor {
+export interface IAuthor {
   author: string;
   id: string;
   description: string;
