@@ -1,6 +1,5 @@
 import { IBook } from "./Interface/IBook";
 import { IAuthor } from "./Interface/IAuthor";
-import { ITodayOffer } from "./Interface/ITodayOffer";
 
 export interface PacktPubInterface {
   fetchTodayOffer(): Promise<string>;

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosInstance} from "axios";
 import moment from "moment";
 import {PacktPubInterface} from "./PacktPubInterface";
 import {IBook} from "./Interface/IBook";
@@ -10,7 +10,7 @@ export class PacktPubClient implements PacktPubInterface {
   "https://services.packtpub.com/free-learning-v1/offers";
   readonly #BOOK_URL: string = "products";
   readonly #AUTHOR_URL: string = "authors";
-  readonly #apiClient = axios.create({
+  readonly #apiClient: AxiosInstance = axios.create({
     baseURL: "https://static.packt-cdn.com/",
     responseType: "json",
     headers: {
@@ -24,7 +24,7 @@ export class PacktPubClient implements PacktPubInterface {
 
   async fetchAuthorById(id: string): Promise<IAuthor> {
     const response = await this.#apiClient.get<IAuthor>(
-        `https://static.packt-cdn.com/${this.#AUTHOR_URL}/${id}`
+        `${this.#AUTHOR_URL}/${id}`
     );
     return response.data;
   }
