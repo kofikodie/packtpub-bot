@@ -4,7 +4,7 @@ import { BookBuilder } from "./src/Book/Builder/BookBuilder";
 import { PacktPubClient } from "./src/Service/PacktPub/PacktPubClient";
 import { SlackBookSender } from "./src/Sender/SlackBookSender";
 import { SlackClient } from "./src/Service/Slack/SlackClient";
-import { BookToSlackMessageConverter } from "./src/Service/BookToSlackMessageConverter";
+import { BookToSlackMessageConverter } from "./src/Service/Message/BookToSlackMessageConverter";
 import dotenv from "dotenv";
 
 dotenv.config();

@@ -1,3 +1,5 @@
+import {MessageInterface} from "../Message/Interface/MessageInterface";
+
 export interface SlackClientInterface {
-  send(message: JSON): void;
+  send(message: MessageInterface): void;
 }
