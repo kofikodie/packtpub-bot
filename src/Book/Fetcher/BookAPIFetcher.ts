@@ -6,29 +6,27 @@ import { Author } from "../Entity/Author";
 import { IAuthor } from "../../Service/PacktPub/Interface/IAuthor";
 
 export class BookAPIFetcher implements BookAPIFetcherInterface {
-  #packtPubClient: PacktPubInterface;
-  #bookBuilder: BookBuilder;
-
-  constructor(packtPubClient: PacktPubInterface, bookBuilder: BookBuilder) {
-    this.#packtPubClient = packtPubClient;
-    this.#bookBuilder = bookBuilder;
-  }
+  constructor(
+    private packtPubClient: PacktPubInterface,
+    private bookBuilder: BookBuilder
+  ) {}
 
   async fetch(): Promise<Book> {
-    let bookId = await this.#packtPubClient.fetchTodayOffer();
-    let bookData = await this.#packtPubClient.fetchBookById(bookId);
-    let coverURL = await this.#packtPubClient.fetchCoverURLByBookId(bookId);
+    let bookId = await this.packtPubClient.fetchTodayOffer();
+    let bookData = await this.packtPubClient.fetchBookById(bookId);
+    let coverURL = await this.packtPubClient.fetchCoverURLByBookId(bookId);
     let authorsCollectionsPromise: Promise<
       IAuthor
-    >[] = bookData.authors.map((author: string) => this.#packtPubClient.fetchAuthorById(author));
-    let authorCollectionsData = await Promise.all(
-      authorsCollectionsPromise
+    >[] = bookData.authors.map((author: string) =>
+      this.packtPubClient.fetchAuthorById(author)
     );
+    let authorCollectionsData = await Promise.all(authorsCollectionsPromise);
     let authors = authorCollectionsData.map(
-      (authorData: IAuthor) => new Author(Number(authorData.id), authorData.author)
+      (authorData: IAuthor) =>
+        new Author(Number(authorData.id), authorData.author)
     );
 
-    return this.#bookBuilder
+    return this.bookBuilder
       .id(Number(bookId))
       .title(bookData.title)
       .description(bookData.oneLiner)
