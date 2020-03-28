@@ -1,9 +1,9 @@
-import axios, {AxiosInstance} from "axios";
+import axios, { AxiosInstance } from "axios";
 import moment from "moment";
-import {PacktPubInterface} from "./PacktPubInterface";
-import {IBook} from "./Interface/IBook";
-import {IAuthor} from "./Interface/IAuthor";
-import {ITodayOffer, OfferType} from "./Interface/ITodayOffer";
+import { PacktPubInterface } from "./PacktPubInterface";
+import { IBook } from "./Interface/IBook";
+import { IAuthor } from "./Interface/IAuthor";
+import { ITodayOffer } from "./Interface/ITodayOffer";
 
 export class PacktPubClient implements PacktPubInterface {
   readonly #OFFER_URL: string =
@@ -26,6 +26,7 @@ export class PacktPubClient implements PacktPubInterface {
     const response = await this.#apiClient.get<IAuthor>(
         `${this.#AUTHOR_URL}/${id}`
     );
+
     return response.data;
   }
 
@@ -33,6 +34,7 @@ export class PacktPubClient implements PacktPubInterface {
     const response = await this.#apiClient.get<IBook>(
         `${this.#BOOK_URL}/${id}/summary`
     );
+
     return response.data;
   }
 
@@ -45,8 +47,7 @@ export class PacktPubClient implements PacktPubInterface {
     const response = await this.#apiClient.get<ITodayOffer>(
         `${this.#OFFER_URL}/?dateFrom=${todaysDateFormated}&dateTo=${tommorrowDateFormated}`
     );
-    let bookID: string;
-    response.data.data.forEach((offer: OfferType) => bookID = offer.productId);
-    return bookID;
+
+    return response.data.data[0].productId;
   }
 }
