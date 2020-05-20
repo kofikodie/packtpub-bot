@@ -1,45 +1,50 @@
 {
-  "name": "packtpub-bot",
-  "version": "1.0.0",
-  "description": "A chat bot for sending daily Packt Publishing Free eBooks to your Slack channel (inspired by alsoknownasdrew)",
-  "main": "console.js",
-  "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "lint": "tslint src/**/*.ts",
-    "pretty": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node console.ts send"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kofikodie/packtpub-bot.git"
-  },
-  "keywords": [
-    "slack",
-    "typescript",
-    "bot"
-  ],
-  "author": "kodie @k.kodieaddo@gmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kofikodie/packtpub-bot/issues"
-  },
-  "homepage": "https://github.com/kofikodie/packtpub-bot#readme",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "commander": "^4.0.1",
-    "dotenv": "^8.2.0",
-    "moment": "^2.24.0",
-    "typescript": "^3.8.2"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.24",
-    "@types/node": "^12.12.21",
-    "ajv": "^6.10.2",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "ts-jest": "^24.2.0",
-    "ts-node": "^8.6.2",
-    "tslint": "^5.20.1"
-  }
+    "name": "packtpub-bot",
+    "version": "1.0.0",
+    "description": "A chat bot for sending daily Packt Publishing Free eBooks to your Slack channel (inspired by alsoknownasdrew)",
+    "main": "console.js",
+    "scripts": {
+        "test": "jest",
+        "build": "tsc",
+        "lint": "eslint . --ext .ts",
+        "lint-fix": "eslint . --fix --ext .ts",
+        "pretty": "prettier --check {*.ts,**/*.ts,**/**}",
+        "pretty-fix": "prettier --write {*.ts,**/*.ts,**/**}",
+        "start-dev": "ts-node console.ts send",
+        "start": "node console.js send"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kofikodie/packtpub-bot.git"
+    },
+    "keywords": [
+        "slack",
+        "typescript",
+        "bot"
+    ],
+    "author": "kodie @k.kodieaddo@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kofikodie/packtpub-bot/issues"
+    },
+    "homepage": "https://github.com/kofikodie/packtpub-bot#readme",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "commander": "^5.1.0",
+        "dotenv": "^8.2.0",
+        "moment": "^2.26.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^25.2.3",
+        "@types/node": "^14.0.4",
+        "@typescript-eslint/eslint-plugin": "^2.34.0",
+        "@typescript-eslint/parser": "^2.34.0",
+        "ajv": "^6.10.2",
+        "eslint": "^7.0.0",
+        "jest": "^26.0.1",
+        "prettier": "^2.0.5",
+        "ts-jest": "^26.0.0",
+        "ts-node": "^8.10.1",
+        "typescript": "^3.9.3"
+    }
 }

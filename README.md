@@ -15,7 +15,7 @@ To get up and running with docker you will need to:
 
 3. Run your image
     ```bash
-     docker run --rm nameOfYourImage:version node dist/console.js send
+     docker run --rm nameOfYourImage:version yarn start
     ```
 Alternatively, to run the application without docker you need to
 
