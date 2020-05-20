@@ -21,6 +21,11 @@ Alternatively, to run the application without docker you need to
 
 1. follow the first step stated above
 
-2. run  ```npm install```
+2. run  ```yarn set version berry```
 
-3. run ```node dist/console.js send```
+3. run  ```yarn```
+
+4. Follow the guide on the link to setup your IDE
+https://yarnpkg.com/advanced/editor-sdks
+
+5. run ```yarn start```
