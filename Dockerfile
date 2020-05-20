@@ -1,7 +1,7 @@
-FROM node:12-alpine
+FROM node:14.0.0-alpine3.10
 WORKDIR /usr/src/app
-COPY package.json .
-# Install all Packages
-RUN npm install
-ADD . /usr/src/app
-RUN npm run build
+RUN yarn set version berry
+ADD package.prod.json /usr/src/app/package.json
+RUN yarn install
+ADD ./dist/ /usr/src/app
+ADD .env /usr/src/app/.env
