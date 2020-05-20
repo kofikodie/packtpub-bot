@@ -1,5 +1,5 @@
-import { Book } from "../Entity/Book";
+import { Book } from '../Entity/Book';
 
 export interface BookBuilderInterface {
-  build(): Book;
+    build(): Book;
 }

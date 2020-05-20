@@ -1,12 +1,12 @@
-import { IBook } from "./Interface/IBook";
-import { IAuthor } from "./Interface/IAuthor";
+import { BookInterface } from './Interface/IBook';
+import { AuthorInterface } from './Interface/IAuthor';
 
 export interface PacktPubInterface {
-  fetchTodayOffer(): Promise<string>;
+    fetchTodayOffer(): Promise<string>;
 
-  fetchBookById(id: string): Promise<IBook>;
+    fetchBookById(id: string): Promise<BookInterface>;
 
-  fetchAuthorById(id: string): Promise<IAuthor>;
+    fetchAuthorById(id: string): Promise<AuthorInterface>;
 
-  fetchCoverURLByBookId(id: string): Promise<string | null>;
+    fetchCoverURLByBookId(id: string): Promise<string | null>;
 }

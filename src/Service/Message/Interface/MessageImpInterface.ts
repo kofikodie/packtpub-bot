@@ -1,22 +1,19 @@
-import { BlocksEntity, MessageInterface, Text } from "./MessageInterface";
-import { Book } from "../../../Book/Entity/Book";
+import { BlocksEntity, MessageInterface, Text } from './MessageInterface';
+import { Book } from '../../../Book/Entity/Book';
 
 export interface MessageImpInterface {
-  convert(book: Book): MessageInterface;
-  buildSection(): Section;
-  buildAccessory(
-    bookInfo: string,
-    { coverURL, title }: buildBlockEntityProps
-  ): BlocksEntity;
-  buildAction(): BlocksEntity;
+    convert(book: Book): MessageInterface;
+    buildSection(): Section;
+    buildAccessory(bookInfo: string, { coverURL, title }: BuildBlockEntityProps): BlocksEntity;
+    buildAction(): BlocksEntity;
 }
 
-export interface buildBlockEntityProps {
-  coverURL: string;
-  title: string;
+export interface BuildBlockEntityProps {
+    coverURL: string;
+    title: string;
 }
 
 export interface Section {
-  type: string;
-  text: Text;
+    type: string;
+    text: Text;
 }
