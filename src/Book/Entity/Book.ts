@@ -1,50 +1,36 @@
 import { Author } from './Author';
 
 export class Book {
-    readonly #id: number;
-    readonly #title: string;
-    readonly #author: Author[];
-    readonly #publicationDate: string;
-    readonly #description: string;
-    readonly #coverURL: string;
-
     constructor(
-        id: number,
-        title: string,
-        authors: Author[],
-        publicationDate: string,
-        description: string,
-        coverURL: string,
-    ) {
-        this.#id = id;
-        this.#title = title;
-        this.#author = authors;
-        this.#publicationDate = publicationDate;
-        this.#description = description;
-        this.#coverURL = coverURL;
-    }
+        private _id: number,
+        private _title: string,
+        private _authors: Author[],
+        private _publicationDate: string,
+        private _description: string,
+        private _coverURL: string,
+    ) {}
 
     get id(): number {
-        return this.#id;
+        return this._id;
     }
 
     get title(): string {
-        return this.#title;
+        return this._title;
     }
 
     get author(): Author[] {
-        return this.#author;
+        return this._authors;
     }
 
     get publicationDate(): string {
-        return this.#publicationDate;
+        return this._publicationDate;
     }
 
     get description(): string {
-        return this.#description;
+        return this._description;
     }
 
     get coverURL(): string {
-        return this.#coverURL;
+        return this._coverURL;
     }
 }
