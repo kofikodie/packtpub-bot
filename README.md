@@ -8,7 +8,7 @@ To get up and running with docker you will need to:
     ```bash
     SLACK_WEBHOOKS="your-slack-channel-webhook"
     ```
-2. Build your image
+2. cd in the .docker directory and Build your image
     ```bash
      docker build -t nameOfYourImage:version .
     ```
